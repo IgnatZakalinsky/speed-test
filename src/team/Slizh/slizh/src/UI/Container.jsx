@@ -1,7 +1,7 @@
 import React from 'react';
 import PContainer from "./PContaner";
 import {useDispatch, useSelector} from "react-redux";
-import {setInputAC, setTextAC} from "../BLL/myReducer";
+import {getDataAC, setInputAC, setTextAC} from "../BLL/myReducer";
 
 
 const Contaner = (props) =>{
@@ -13,8 +13,9 @@ const Contaner = (props) =>{
 		dispatch (setInputAC (value))
 	}
     const setTextValue = () => {
-		dispatch (setTextAC ())
+		dispatch (getDataAC ())
 	}
+
 
 	return (
 		<PContainer setInputValue={setInputValue} setTextValue={setTextValue}

@@ -1,3 +1,5 @@
+import {API} from "../DALL/api";
+
 const SET_IPUT_VALUE = 'SET_IPUT_VALUE';
 const SET_TEXT_VALUE = 'SET_TEXT_VALUE';
 
@@ -15,7 +17,7 @@ const myReducer = (state = initialState, action) => {
 		case  SET_TEXT_VALUE: {
 			return  {
 				...state,
-				textValue: state.inputValue
+				textValue: action.value
 			};
 		}
 
@@ -35,9 +37,13 @@ const myReducer = (state = initialState, action) => {
 
 
 export const setInputAC = (inputValue) =>({type: SET_IPUT_VALUE, inputValue});
-export const setTextAC = () =>({type: SET_TEXT_VALUE});
+export const setTextAC = (value) =>({type: SET_TEXT_VALUE, value});
 
 //thunkCreater
+export const getDataAC = () => async (dispatch, getState) => {
+	let resp = await API.getData(getState().main.inputValue)
+	dispatch(setTextAC( JSON.stringify(resp.data)));
+};
 
 
 
