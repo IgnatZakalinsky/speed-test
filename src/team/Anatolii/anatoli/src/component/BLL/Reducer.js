@@ -1,4 +1,6 @@
 const initialState = {
+    textValue: 'Text',
+    inputValue: 'Text2'
 
 }
 
