@@ -1,4 +1,5 @@
 import React from 'react'
+import {API} from "../DAl/API";
 
 export const SET_INPUT_VALUE = "SpeedTest/team/SET_INPUT_VALUE";
 export const SET_TEXT_VALUE = "SpeedTest/team/SET_TEXT_VALUE";
@@ -17,7 +18,7 @@ export const Reducer = (state = initialState, action) => {
         }
         case SET_TEXT_VALUE: {
             return {
-                ...state, textValue: state.inputValue
+                ...state, textValue: action.value
             }
         }
         default:
@@ -26,4 +27,8 @@ export const Reducer = (state = initialState, action) => {
     }
 };
 export const setInputValueAC = (inputValue) => ({type: SET_INPUT_VALUE, inputValue:inputValue});
-export const setTextValueValueAC = () => ({type: SET_TEXT_VALUE});
+export const setTextValueValueAC = (value) => ({type: SET_TEXT_VALUE, value});
+export const getDataTC =()=> async (dispatch,getState)=> {
+    const resp = await API.getData(getState().main.inputValue)
+    dispatch(setTextValueValueAC(JSON.stringify(resp.data)))
+}
