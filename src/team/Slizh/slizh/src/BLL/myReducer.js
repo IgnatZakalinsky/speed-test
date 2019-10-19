@@ -1,15 +1,30 @@
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_IPUT_VALUE = 'SET_IPUT_VALUE';
+const SET_TEXT_VALUE = 'SET_TEXT_VALUE';
+
 
 
 
 let initialState = {
-	textValue: 'Text',
-	inputValue: 'Text2'
+	textValue: 'react',
+	inputValue: 'redux'
 };
 
 const myReducer = (state = initialState, action) => {
 
 	switch (action.type) {
+		case  SET_TEXT_VALUE: {
+			return  {
+				...state,
+				textValue: state.inputValue
+			};
+		}
+
+		case  SET_IPUT_VALUE: {
+			return  {
+				...state,
+				inputValue: action.inputValue
+			};
+		}
 
 
 		default:
@@ -19,7 +34,8 @@ const myReducer = (state = initialState, action) => {
 };
 
 
-
+export const setInputAC = (inputValue) =>({type: SET_IPUT_VALUE, inputValue});
+export const setTextAC = () =>({type: SET_TEXT_VALUE});
 
 //thunkCreater
 

@@ -1,14 +1,24 @@
 import React from 'react';
 import PContainer from "./PContaner";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setInputAC, setTextAC} from "../BLL/myReducer";
 
 
 const Contaner = (props) =>{
 
 	const main = useSelector((state) => state.main)
+	const  dispatch = useDispatch()
+
+	const setInputValue = (value) => {
+		dispatch (setInputAC (value))
+	}
+    const setTextValue = () => {
+		dispatch (setTextAC ())
+	}
 
 	return (
-		<PContainer inputValue={main.inputValue} textValue={main.textValue} />
+		<PContainer setInputValue={setInputValue} setTextValue={setTextValue}
+		                   inputValue={main.inputValue} textValue={main.textValue} />
 	)
 }
 
