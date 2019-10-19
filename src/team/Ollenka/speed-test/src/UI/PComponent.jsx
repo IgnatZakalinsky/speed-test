@@ -3,10 +3,10 @@ import React from 'react';
 // import './App.css';
 // import {Route} from "react-router-dom";
 
-function PComponent() {
+function PComponent(props) {
     return (<>
-            <div>Text</div>
-            <div><input/></div>
+            <div>{props.textValue}</div>
+            <div><input value={props.inputValue}/></div>
             <div><button>Send</button></div>
         </>
 
