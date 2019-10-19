@@ -1,14 +1,11 @@
 import React from 'react'
 
 let PComponent = (props) => {
-
-    let Change = (e)=>{
-       let text =  e.currentTarget.value
-        props.setInputValue(text)
-
+    let Change = (e) => {
+        props.setInputValue(e.currentTarget.value)
     }
 
-    let Send = ()=>{
+    let Send = () => {
         props.AddValue()
     }
 

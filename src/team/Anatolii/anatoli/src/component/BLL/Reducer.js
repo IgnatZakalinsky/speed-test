@@ -1,3 +1,6 @@
+import {API} from "../DAL/API";
+
+
 const SET_TEXT_VALUE = 'SET_TEXT_VALUE'
 const SET_INPUT_VALUE = 'SET_INPUT_VALUE'
 
@@ -12,7 +15,7 @@ const OReducer = (state = initialState, action) => {
         case SET_TEXT_VALUE:
             return {
                 ...state,
-                textValue: state.inputValue
+                textValue: action.value
             };
         case SET_INPUT_VALUE:
             return {
@@ -27,6 +30,13 @@ const OReducer = (state = initialState, action) => {
 }
 
 
-export const setValueAC = () => ({type: SET_TEXT_VALUE})
+export const setValueAC = (value) => ({type: SET_TEXT_VALUE,value})
 export const setInputAC = (inputValue) => ({type: SET_INPUT_VALUE, inputValue})
+
+export const getDataTC = () => async (dispatch,getState) => {
+    const res = await API.getData(getState().main.inputValue)
+    dispatch(setValueAC(JSON.stringify(res.data)));
+}
+
+
 export default OReducer
