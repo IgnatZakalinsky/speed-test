@@ -1,13 +1,13 @@
 import React from 'react';
 
-function PComponent() {
+const PComponent = props => {
     return (
         <div>
-            <div>Text</div>
-            <div><input/></div>
+            <div>{props.textValue}</div>
+            <div><input value={props.inputValue}/></div>
             <div><button>Send</button></div>
         </div>
     );
-}
+};
 
 export default PComponent;
