@@ -6,7 +6,7 @@ import myReducer from "./myReducer";
 
 
 let reducers = combineReducers({
-	reducer :myReducer
+	main: myReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

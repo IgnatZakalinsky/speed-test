@@ -1,18 +1,22 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 
 
 
-const PContainer = () =>{
+const PContainer = (props) =>{
+
+
+
 	return (
 		<>
 			<div>
-				Text
+				{props.textValue}
 		    </div>
 			<div>
-				<input type="text"/>
+				<input type="text" value={props.inputValue} onChange={(e)=>{props.setInputValue(e.currentTarget.value)}}/>
 			</div>
 			<div>
-				<button>blblbl</button>
+				<button onClick={props.setTextValue}>blblbl</button>
 			</div>
 		</>
 	)
