@@ -1,15 +1,19 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 
 
 
-const PContainer = () =>{
+const PContainer = (props) =>{
+
+
+
 	return (
 		<>
 			<div>
-				Text
+				{props.textValue}
 		    </div>
 			<div>
-				<input type="text"/>
+				<input type="text" value={props.inputValue}/>
 			</div>
 			<div>
 				<button>blblbl</button>
