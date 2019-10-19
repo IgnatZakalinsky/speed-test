@@ -1,13 +1,13 @@
 import React from 'react';
 import PComponent from "./PComponent";
+import {useSelector} from "react-redux";
 
-class Container extends React.Component {
+function Container() {
+    const main = useSelector(state=>state.main)
+    return (
+        <PComponent textValue={main.textValue} inputValue={main.inputValue}/>
+    );
 
-
-    render = () => {
-        return (
-            <PComponent/>
-        );
-    }
 }
+
 export default Container
