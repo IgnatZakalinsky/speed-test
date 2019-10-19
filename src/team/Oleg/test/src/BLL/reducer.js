@@ -1,3 +1,5 @@
+import {API} from "../DAL/api";
+
 const SET_INPUT_VALUE = "SPEAD_TEST/SET_INPUT_VALUE";
 const SET_TEXT_VALUE = "SPEAD_TEST/SET_TEXT_VALUE";
 
@@ -13,7 +15,7 @@ export const reducer = (state = initialState, action) => {
             }
         case SET_TEXT_VALUE:
             return {
-                ...state, textValue: state.inputValue
+                ...state, textValue: action.value
             }
         default:
             return state
@@ -25,6 +27,11 @@ export const reducer = (state = initialState, action) => {
 export const setInputValueAC = (inputValue)=> ({
     type: SET_INPUT_VALUE, inputValue
 })
-export const setTextValueAC = ()=> ({
-    type: SET_TEXT_VALUE
+export const setTextValueAC = (value)=> ({
+    type: SET_TEXT_VALUE, value
 })
+
+export const getDataTC = () => async(dispatch, getState) => {
+    const resp = await API.getData(getState().main.inputValue)
+    dispatch(setTextValueAC(JSON.stringify(resp.data)))
+}
