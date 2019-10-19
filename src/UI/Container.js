@@ -1,12 +1,9 @@
 import React from 'react';
+import PComponent from "./PComponent";
 
 function Container() {
     return (
-        <div>
-            <div>Text</div>
-            <div><input/></div>
-            <div><button>Send</button></div>
-        </div>
+        <PComponent/>
     );
 }
 
