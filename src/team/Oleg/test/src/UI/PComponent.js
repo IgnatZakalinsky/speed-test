@@ -6,10 +6,10 @@ const PComponent= props => {
             <>
                 <div>{props.textValue}</div>
                 <div>
-                    <input type="text" value={props.inputValue}/>
+                    <input type="text" value={props.inputValue} onChange={e => props.setInputValue(e.currentTarget.value)}/>
                 </div>
                 <div>
-                    <button>send</button>
+                    <button onClick={props.setTextValue}>send</button>
                 </div>
             </>
         );
