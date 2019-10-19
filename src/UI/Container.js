@@ -1,7 +1,7 @@
 import React from 'react';
 import PComponent from "./PComponent";
 import {useDispatch, useSelector} from "react-redux";
-import {setInputValueAC, setTextValueAC} from "../BLL/myReducer";
+import {getData, setInputValueAC} from "../BLL/myReducer";
 
 function Container() {
     const main = useSelector(state => state.main);
@@ -11,7 +11,7 @@ function Container() {
         dispatch(setInputValueAC(inputValue))
     };
     const setTextValue = () => {
-        dispatch(setTextValueAC())
+        dispatch(getData())
     };
     return (
         <PComponent
