@@ -1,15 +1,13 @@
 import React from 'react';
 import Container from "./Container";
 
-class Page extends React.Component {
+function Page() {
 
+    return (
 
-    render = () => {
-        return (
-            <>
-                <Container/>
-            </>
-        );
-    }
+        <Container/>
+
+    );
 }
+
 export default Page;

@@ -2,8 +2,8 @@ import React from 'react'
 
 let PComponent = (props) => {
     return <div>
-        <div>fdghjdfjhvgfhgdfghjdf</div>
-        <div><input type="text"/></div>
+        <div>{props.textValue}</div>
+        <div><input value={props.inputValue}/></div>
         <div>
             <button>Send</button>
         </div>
