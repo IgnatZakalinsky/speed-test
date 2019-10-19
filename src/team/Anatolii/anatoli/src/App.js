@@ -4,11 +4,11 @@ import React from 'react';
 import Page from "./component/Page";
 
 function App() {
-  return (
-    <div className="App">
-      <Route path='/' render={()=><Page/>}/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Route path='/' render={() => <Page/>}/>
+        </div>
+    );
 }
 
 export default App;
